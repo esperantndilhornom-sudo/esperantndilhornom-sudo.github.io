@@ -1,2 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio d'Espérant</title>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f5f9;
+      color: #222;
+      margin: 0;
+      padding: 0 20px 20px 20px;
+    }
+    nav {
+      background-color: #0b5ed7;
+      padding: 12px;
+      margin: 0 -20px 20px -20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 12px;
+    }
+    .photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 10px auto;
+      border: 4px solid #0b5ed7;
+    }
+    h1 { color: #0b5ed7; text-align: center; }
+    h2 {
+      color: #0b5ed7;
+      border-bottom: 2px solid #0b5ed7;
+      padding-bottom: 5px;
+    }
+    li { margin-bottom: 8px; }
+    .centre { text-align: center; }
+    .bouton {
+      display: inline-block;
+      background-color: #25d366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #mode {
+      background-color: #0b5ed7;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+    footer {
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      font-size: 14px;
+    }
+    body.sombre {
+      background-color: #121212;
+      color: #eee;
+    }
+    body.sombre h1, body.sombre h2 { color: #6ea8fe; }
+    body.sombre h2 { border-bottom-color: #6ea8fe; }
+    body.sombre a:not(.bouton):not(nav a) { color: #8ab4f8; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#competences">Compétences</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-index.html
+  <img class="photo" src="photo.jpg" alt="Photo d'Espérant">
+  <h1 id="accueil">Bonjour, je suis Espérant</h1>
+  <p class="centre">Bienvenue sur mon portfolio.</p>
+  <p class="centre"><button id="mode">🌙 Mode sombre</button></p>
+
+  <h2 id="competences">Mes compétences</h2>
+  <ul>
+    <li>Formateur en techniques de recherche en ligne</li>
+    <li>Formateur en intelligence artificielle</li>
+    <li>Maîtrise du dessin technique</li>
+    <li>Soudure</li>
+    <li>Maîtrise des outils numériques</li>
+    <li>Maçon</li>
+  </ul>
+
+  <h2 id="contact">Contact</h2>
+  <p>Téléphone : <a href="tel:+23530830777">+235 30830777</a></p>
+  <p>Téléphone : <a href="tel:+23565645587">+235 65645587</a></p>
+  <p>Ville : Ndjamena, Tchad</p>
+  <p><a class="bouton" href="https://wa.me/23565645587">M'écrire sur WhatsApp</a></p>
+
+  <footer>
+    <p>© <span id="annee"></span> Espérant Ndilhornom</p>
+    <p><a href="#accueil">↑ Retour en haut</a></p>
+  </footer>
+
+  <script>
+    var heure = new Date().getHours();
+    var salut = heure < 18 ? "Bonjour" : "Bonsoir";
+    document.getElementById("accueil").textContent = salut + ", je suis Espérant";
+    document.getElementById("annee").textContent = new Date().getFullYear();
+
+    var bouton = document.getElementById("mode");
+    bouton.onclick = function () {
+      document.body.classList.toggle("sombre");
+      if (document.body.classList.contains("sombre")) {
+        bouton.textContent = "☀️ Mode clair";
+      } else {
+        bouton.textContent = "🌙 Mode sombre";
+      }
+    };
+  </script>
+</body>
+</html>
